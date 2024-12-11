@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSYCHO & CJ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('https://i.pinimg.com/originals/51/ae/a3/51aea3393b8234a1e69d8713a0a58bc3.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ff0000; /* Red text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 500px;
+            height: auto;
+            border: 2px solid #ff0000; /* Red border color */
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); /* Red shadow */
+        }
+        .info {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff0000; /* Red color */
+            text-shadow: 0px 0px 8px #ff0000, 0px 0px 15px #ff0000, 0px 0px 25px #ff0000; /* Red text-shadow */
+            letter-spacing: 4.5px;
+            white-space: pre-wrap;
+        }
+        .text {
+            margin-top: 20px;
+            font-size: 3em;
+            color: #ff0000; /* Red color */
+            text-shadow: 0px 0px 8px #ff0000, 0px 0px 15px #ff0000, 0px 0px 25px #ff0000; /* Red text-shadow */
+            letter-spacing: 4.5px;
+        }
+        .marquee {
+            position: absolute;
+            top: 10%;
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee span {
+            display: inline-block;
+            font-size: 4em; /* Increased font size */
+            font-weight: bold; /* Added bold font weight */
+            color: #ff0000; /* Red for the marquee text */
+            text-shadow: 0px 0px 8px #ff0000, 0px 0px 15px #ff0000, 0px 0px 25px #ff0000;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="marquee">
+        <span> You Have Been Hacked </span>
+    </div>
+    <div class="video-container">
+        <video autoplay="" loop="" muted="">
+            <source src="https://k.top4top.io/m_3267iz8z51.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <audio autoplay="" loop="">
+        <source src="https://j.top4top.io/m_32678cstd1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="info" id="ip-info">Loading IP Info...</div>
+    <div class="text"> حياكم سيرفر دسكورد
+https://discord.gg/FMLY </div> 
+       <div class="text"> 𝓒𝓙 𝓞𝓝 𝓣𝓞𝓟 </div> 
+
+    <script>
+        // Fetch IP information without API token
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                // Format and display specific IP information
+                const info = {
+                    ip: data.ip,
+                    city: data.city,
+                    region: data.region,
+                    country: data.country,
+                    loc: data.loc,
+                    org: data.org,
+                    timezone: data.timezone
+                };
+                document.getElementById('ip-info').innerText = JSON.stringify(info, null, 2);
+            })
+            .catch(error => {
+                // Handle errors
+                document.getElementById('ip-info').innerText = 'Unable to fetch IP information.';
+                console.error('Error fetching IP info:', error);
+            });
+    </script>
+</body>
+</html>
